@@ -1,0 +1,14 @@
+{application, erlgrind,
+ [{description, "Convert fprof to callgrind output"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {licenses, ["MIT"]},
+  {links, []}
+ ]}.

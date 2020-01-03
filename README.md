@@ -20,6 +20,16 @@ For a description of fprof's format, check [fprof].
 
 For a description of callgrind's format, check [callgrind].
 
+erlgrind
+=====
+
+```sh
+# Build:
+$ rebar3 escriptize
+# Run:
+$ _build/default/bin/erlgrind
+```
+
 ### Usage
 
     Usage: erlgrind [Options] <input file .trace/.analysis> [<output file>]
@@ -42,37 +52,37 @@ The fprof output:
   {totals, false},
   {details, true}]}.
 
-%                                               CNT       ACC       OWN        
+%                                               CNT       ACC       OWN
 [{ totals,                                       90,    0.330,    0.330}].  %%%
 
 
-%                                               CNT       ACC       OWN        
+%                                               CNT       ACC       OWN
 [{ "&lt;0.33.0&gt;",                                   90,undefined,    0.330}].   %%
 
-{[{{sort,quicksort,1},                            0,    0.269,    0.007},      
-  {undefined,                                     0,    0.025,    0.018},      
-  {{fprof,call,1},                                1,    0.018,    0.014}],     
+{[{{sort,quicksort,1},                            0,    0.269,    0.007},
+  {undefined,                                     0,    0.025,    0.018},
+  {{fprof,call,1},                                1,    0.018,    0.014}],
  { {fprof,just_call,2},                           1,    0.312,    0.039},     %
- [{{sort,quicksort_div,4},                        1,    0.262,    0.004},      
-  {{erlang,demonitor,1},                          1,    0.007,    0.007},      
-  {{erlang,monitor,2},                            1,    0.004,    0.004},      
-  {suspend,                                       1,    0.000,    0.000}]}.    
+ [{{sort,quicksort_div,4},                        1,    0.262,    0.004},
+  {{erlang,demonitor,1},                          1,    0.007,    0.007},
+  {{erlang,monitor,2},                            1,    0.004,    0.004},
+  {suspend,                                       1,    0.000,    0.000}]}.
 
-{[{undefined,                                     0,    0.269,    0.000},      
-  {{erl_eval,do_apply,5},                         0,    0.036,    0.003}],     
+{[{undefined,                                     0,    0.269,    0.000},
+  {{erl_eval,do_apply,5},                         0,    0.036,    0.003}],
  { {sort,quicksort,1},                            0,    0.305,    0.003},     %
- [{{fprof,just_call,2},                           0,    0.269,    0.007},      
-  {{fprof,trace,1},                               1,    0.033,    0.004}]}.    
+ [{{fprof,just_call,2},                           0,    0.269,    0.007},
+  {{fprof,trace,1},                               1,    0.033,    0.004}]}.
 
-{[{{fprof,just_call,2},                           1,    0.262,    0.004},      
-  {{sort,quicksort_div,4},                       64,    0.000,    0.185}],     
+{[{{fprof,just_call,2},                           1,    0.262,    0.004},
+  {{sort,quicksort_div,4},                       64,    0.000,    0.185}],
  { {sort,quicksort_div,4},                       65,    0.262,    0.189},     %
- [{{sort,merge,3},                                9,    0.073,    0.050},      
-  {{sort,quicksort_div,4},                       64,    0.000,    0.185}]}.    
+ [{{sort,merge,3},                                9,    0.073,    0.050},
+  {{sort,quicksort_div,4},                       64,    0.000,    0.185}]}.
 
-{[{{sort,quicksort_div,4},                        9,    0.073,    0.050}],     
+{[{{sort,quicksort_div,4},                        9,    0.073,    0.050}],
  { {sort,merge,3},                                9,    0.073,    0.050},     %
- [{{erlang,'++',2},                               9,    0.023,    0.023}]}.    
+ [{{erlang,'++',2},                               9,    0.023,    0.023}]}.
  </pre>
 
 Will generate the callgrind output: <br>

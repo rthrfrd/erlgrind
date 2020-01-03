@@ -1,4 +1,6 @@
-#!/usr/bin/env escript
+-module(erlgrind).
+
+-export([main/1]).
 
 %%% Copyright (c) 2011-2014
 %%% Isac Sacchi e Souza <isacssouza@gmail.com>
@@ -60,7 +62,7 @@ process_terms(OutFile, [{analysis_options, _Opt} | Rest], Opts) ->
 process_terms(OutFile, [[{totals, _Cnt, Acc, _Own}] | Rest], Opts) ->
     io:format(OutFile, "summary: ~w~n", [trunc(Acc*1000)]),
     process_terms(OutFile, Rest, Opts);
-process_terms(OutFile, [[{Pid, _Cnt, _Acc, _Own} | _T] | Rest], Opts) 
+process_terms(OutFile, [[{Pid, _Cnt, _Acc, _Own} | _T] | Rest], Opts)
         when is_list(Pid) and (Opts#opts.pid =:= true) ->
     io:format(OutFile, "ob=~s~n", [Pid]),
     process_terms(OutFile, Rest, Opts);
